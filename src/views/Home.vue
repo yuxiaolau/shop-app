@@ -48,7 +48,7 @@ export default {
     },
     buyHandle() {
       // this.$store.commit('buy')
-      this.buy()
+      // this.buy()
     }
   }
 }

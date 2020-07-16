@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { getToken } from './auth'
 
 const instance = axios.create({
   timeout: 5000,
@@ -10,6 +11,7 @@ instance.interceptors.request.use(
   function(config) {
     // Do something before request is sent
     console.log('请求执行之前')
+    config.headers.authorization = 'bearer ' + getToken()
     return config
   },
   function(error) {
@@ -27,6 +29,9 @@ instance.interceptors.response.use(
     return response.data
   },
   function(error) {
+    if (error.response.status === 401) {
+      window.location.href = '/#/login'
+    }
     // if (error.message.indexOf('timeout') > -1) {
     //   alert('请求超时，请重试')
     // }
