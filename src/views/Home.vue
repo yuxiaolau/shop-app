@@ -1,6 +1,12 @@
 <template>
   <div class="home">
-    <h1>{{$store.getters.listCount}}</h1>
+    <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
+      <van-swipe-item>1</van-swipe-item>
+      <van-swipe-item>2</van-swipe-item>
+      <van-swipe-item>3</van-swipe-item>
+      <van-swipe-item>4</van-swipe-item>
+    </van-swipe>
+    <h1>{{ $store.getters.listCount }}</h1>
     <button @click="countAdd">数据+1</button>
     <!-- <button @click="loaData">加载数据</button> -->
     <ul>
@@ -21,6 +27,7 @@
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
 import { mapMutations } from 'vuex'
+// import { Button } from 'vant'
 
 export default {
   name: 'Home',
@@ -53,3 +60,13 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.my-swipe .van-swipe-item {
+  color: #fff;
+  font-size: 20px;
+  line-height: 150px;
+  text-align: center;
+  background-color: #39a9ed;
+}
+</style>

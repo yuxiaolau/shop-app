@@ -1,30 +1,42 @@
 <template>
   <div class="container">
-    <div class="header">芒果商城</div>
+    <div class="header">
+      <router-link :to="{ name: 'Home' }"
+        ><i class="fa fa-home returnBtn"></i
+      ></router-link>
+      芒果商城
+    </div>
     <router-view class="content"></router-view>
     <div v-show="isShowFooter" class="footer">
-      <div :class="currentIndex==0?'nav active':'nav'" @click="navTo('Home',0)">
+      <div
+        :class="currentIndex == 0 ? 'nav active' : 'nav'"
+        @click="navTo('Home', 0)"
+      >
         <i class="fa fa-home"></i>
         <span>首页</span>
       </div>
-      <div :class="currentIndex==1?'nav active':'nav'" @click="navTo('Hot',1)">
+      <div
+        :class="currentIndex == 1 ? 'nav active' : 'nav'"
+        @click="navTo('Hot', 1)"
+      >
         <i class="fa fa-fire"></i>
         <span>热卖</span>
       </div>
       <div
-        :class="currentIndex==2?'nav active':'nav'"
+        :class="currentIndex == 2 ? 'nav active' : 'nav'"
         style="position:relative;"
-        @click="navTo('Cart',2)"
+        @click="navTo('Cart', 2)"
       >
         <span v-show="$store.state.cartCount > 0" class="dot">
-          {{
-          $store.state.cartCount
-          }}
+          {{ $store.state.cartCount }}
         </span>
         <i class="fa fa-shopping-cart"></i>
         <span>购物车</span>
       </div>
-      <div :class="currentIndex==3?'nav active':'nav'" @click="navTo('User',3)">
+      <div
+        :class="currentIndex == 3 ? 'nav active' : 'nav'"
+        @click="navTo('User', 3)"
+      >
         <i class="fa fa-user"></i>
         <span>我的</span>
       </div>
@@ -60,7 +72,8 @@ export default {
     }
   }
 }
-</script>>
+</script>
+>
 <style>
 html,
 body {
@@ -125,5 +138,11 @@ img {
   width: 1rem;
   height: 1rem;
   text-align: center;
+}
+.returnBtn {
+  float: left;
+  font-size: 2rem;
+  margin-left: 0.5rem;
+  color: white;
 }
 </style>

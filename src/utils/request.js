@@ -10,7 +10,7 @@ const instance = axios.create({
 instance.interceptors.request.use(
   function(config) {
     // Do something before request is sent
-    console.log('请求执行之前')
+    // console.log('请求执行之前')
     config.headers.authorization = 'bearer ' + getToken()
     return config
   },
@@ -25,7 +25,7 @@ instance.interceptors.response.use(
   function(response) {
     // Any status code that lie within the range of 2xx cause this function to trigger
     // Do something with response data
-    console.log('请求执行完成')
+    // console.log('请求执行完成')
     return response.data
   },
   function(error) {
@@ -58,5 +58,5 @@ export function put(url, data) {
 }
 
 export function del(url) {
-  return instance.del(url)
+  return instance.delete(url)
 }
